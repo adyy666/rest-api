@@ -25,7 +25,6 @@ app.get('/users/:id', (req, res) => {
 
     if (!user) {
         return res.status(404).json({
-            npm start
             status: 'error',
             message: `Pengguna dengan ID ${id} tidak ditemukan`,
             data: null
@@ -69,11 +68,13 @@ app.post('/users', (req, res) => {
         data: newUser
     });
 });
+
 app.use((req, res) => {
     res.status(404).json({ status: 'error', message: 'Endpoint tidak ditemukan' });
 });
 
 module.exports = app;
+
 if (require.main === module) {
     const PORT = process.env.PORT || 3000;
     app.listen(PORT, () => console.log(`Server berjalan di http://localhost:${PORT}`));
